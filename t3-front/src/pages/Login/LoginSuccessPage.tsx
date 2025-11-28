@@ -6,12 +6,11 @@ import axios from "axios";
 const LoginSuccessPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const setToken = useAuthStore((state) => state.setToken);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const tokenFromUrl = params.get("token");
-
-    const setToken = useAuthStore((state) => state.setToken);
 
     if (tokenFromUrl) {
       setToken(tokenFromUrl);
@@ -26,11 +25,11 @@ const LoginSuccessPage = () => {
     }
 
     navigate("/login", { replace: true });
-  }, [location]);
+  }, [location, setToken, navigate]);
 
   const getUser = async (token: string) => {
     try {
-      const res = await axios.get(`user/me`, {
+      const res = await axios.get(`${import.meta.env.VITE_REST_URL}/user/me`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -44,11 +43,7 @@ const LoginSuccessPage = () => {
     }
   };
 
-  return (
-    <div>
-      <div>로그인 중...</div>
-    </div>
-  );
+  return <div>로그인 중...</div>;
 };
 
 export default LoginSuccessPage;
