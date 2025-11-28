@@ -7,7 +7,9 @@ interface CardProps {
 
 const Card = ({ children, className = "" }: CardProps) => {
   return (
-    <div className={`flex justify-start rounded-xl ${className}`}>
+    <div
+      className={`flex justify-start rounded-xl bg-white-default p-4 ${className}`}
+    >
       {children}
     </div>
   );
