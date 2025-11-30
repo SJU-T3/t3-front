@@ -18,6 +18,7 @@ module.exports = {
         "bg-tag-success": "#DDF4E0",
         "bg-tag-fail": "#F6F5F3",
         "bg-input": "#F6F5F3",
+        "bg-red": "#FFE0C9",
 
         // 텍스트
         "text-primary": "#333333",
