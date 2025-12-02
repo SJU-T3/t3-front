@@ -187,12 +187,12 @@ const IncomeDetailPage = () => {
         <div className="p-4 flex flex-col gap-4 bg-app-bg">
             {/* Header */}
             <div className="flex items-center justify-between">
-                <button className="text-2xl"
+                <button className="text-text-gray text-2xl"
                     onClick={() => navigate("/report", { state: { year, month } })}
                 >
                     &lt;
                 </button>
-                <p className="text-lg font-semibold">
+                <p className="text-text-gray text-lg font-semibold">
                     {year}년 {month}월 수입
                 </p>
                 <div className="w-5"></div>
@@ -247,7 +247,7 @@ const IncomeDetailPage = () => {
             {/* 날짜별 내역 */}
             {dailyIncomeHistory.map((day, idx) => (
                 <Card key={idx} className="p-4 flex flex-col gap-3">
-                    <p className="text-text-gray text-sm font-semibold">
+                    <p className="text-text-gray text-sm font-semibold mb-5">
                         {new Date(day.date).getMonth() + 1}월{" "}
                         {new Date(day.date).getDate()}일
                     </p>

@@ -128,7 +128,7 @@ const ReportPage = () => {
   });
   const [loadingCount, setLoadingCount] = useState(true);
 
-  const isPlanAchieved = countData.plannedCount >= countData.impulseCount;
+  const isPlanAchieved = countData.plannedCount > countData.impulseCount;
   const totalExpenseCount = countData.totalExpenseCount;
   const impulseCount = countData.impulseCount;
   const plannedCount = countData.plannedCount;
@@ -555,7 +555,7 @@ const ReportPage = () => {
             className="w-[3rem] h-[3rem]"
           />
           <ProgressBar
-            label="즉흥"
+            label="충동"
             value={impulseCount}
             total={totalExpenseCount}
             variant="red"

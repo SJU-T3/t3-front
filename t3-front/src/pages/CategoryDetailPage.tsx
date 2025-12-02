@@ -209,10 +209,10 @@ const CategoryDetailPage = () => {
 
             {/* Header */}
             <div className="relative flex items-center py-2 mb-2">
-                <button className="text-2xl absolute left-0" onClick={() => navigate("/report", { state: { year, month } })}>
+                <button className="text-text-gray text-2xl absolute left-0" onClick={() => navigate("/report", { state: { year, month } })}>
                     &lt;
                 </button>
-                <p className="text-lg font-semibold absolute left-1/2 -translate-x-1/2">
+                <p className="text-text-gray text-lg font-semibold absolute left-1/2 -translate-x-1/2">
                     세부내역
                 </p>
             </div>

@@ -13,7 +13,7 @@ export default function ProgressBar({
   total,
   variant = "green",
 }: ProgressBarProps) {
-  const percent = (value / total) * 100;
+  const percent = total === 0 ? 0 : (value / total) * 100;
 
   // variant 기반 색상 매핑
   const variantColors: Record<ProgressVariant, string> = {
