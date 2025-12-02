@@ -6,6 +6,7 @@ import { getTransaction, getMonthlyAmount } from "../api";
 import { useState, useEffect, useRef } from "react";
 import { IncomeCategoryLabel } from "../types";
 import type { IncomeCategoryType } from "../types";
+import SpendingItem from "../components/spending/SpendingItem";
 
 const safeIncomeCategory = (cat: string): IncomeCategoryType => {
     if (cat in IncomeCategoryLabel) {
@@ -235,7 +236,7 @@ const IncomeDetailPage = () => {
                                 </span>
                             </div>
 
-                            <span className="text-text-green font-semibold">
+                            <span className="text-black">
                                 +{formatCurrency(item.amount)}원
                             </span>
                         </div>
@@ -252,16 +253,13 @@ const IncomeDetailPage = () => {
                     </p>
 
                     {day.list.map((item, i) => (
-                        <div key={i} className="flex justify-between items-center">
-                            <div className="flex flex-col">
-                                <span className="font-medium">{item.name}</span>
-                                <span className="text-xs text-text-gray">{item.category}</span>
-                            </div>
-
-                            <span className="text-text-green font-semibold">
-                                +{formatCurrency(item.amount)}원
-                            </span>
-                        </div>
+                        <SpendingItem
+                            key={i}
+                            type="INCOME"                  // 수입
+                            name={item.name}
+                            category={item.category}
+                            price={formatCurrency(item.amount)}
+                        />
                     ))}
                 </Card>
             ))}

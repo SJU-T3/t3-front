@@ -368,8 +368,9 @@ const ReportPage = () => {
         <Card className="w-[110px] flex items-center justify-center p-3">
           <img
             src={getMascotImage()}
-            className={`w-[4.5rem] transition-all duration-300 ${showDetail ? "h-[7rem]" : "h-[4.5rem]"
-              }`}
+            className={`transition-all duration-300 
+              ${showDetail ? "w-[6rem] h-[7rem]" : "w-[5.5rem] h-[5.5rem]"}
+              object-contain`}
             alt="mascot"
           />
         </Card>
@@ -377,64 +378,102 @@ const ReportPage = () => {
 
       {/* 이번달 목표/예산 */}
       <div className="flex gap-3">
-        <Card className="flex-1 p-5 flex flex-col gap-1">
+        <Card className="flex-1 p-5 flex flex-col gap-2">
           <div className="flex items-center gap-2">
-            <p className="text-text-gray text-sm">이번달 목표</p>
+            <p className="text-text-gray text-xs">이번달 목표</p>
 
             {loadingGoal ? (
-              <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-md">
+              <span className="text-[10px] bg-gray-200 text-gray-600 px-2 py-0.5 rounded-md">
                 로딩중
               </span>
             ) : isAchieved ? (
-              <span className="text-xs bg-[#D7F7C6] text-green-700 px-2 py-1 rounded-md">
+              <span className="text-[10px] bg-[#D7F7C6] text-green-700 px-2 py-0.5 rounded-md flex items-center gap-1">
+                <svg
+                  className="w-3 h-3 text-green-700"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
                 달성
               </span>
             ) : (
-              <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-md">
+              <span className="text-[10px] bg-gray-200 text-gray-600 px-2 py-0.5 rounded-md flex items-center gap-1">
+                <svg
+                  className="w-3 h-3 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
                 미달성
               </span>
             )}
           </div>
 
-          <p className="text-text-primary text-lg font-semibold">
+          {/* 제목 - 폰트 조금 줄임 */}
+          <p className="text-text-primary text-base font-semibold mt-1">
             {loadingGoal ? "목표 불러오는 중..." : goalData.goal}
           </p>
 
-          <p className="text-text-gray text-sm">
+          {/* 설명 - 위쪽 간격 추가! */}
+          <p className="text-text-gray text-xs mt-5 leading-relaxed">
             목표 소비 횟수 {goalData.targetCount}번 중{" "}
             {goalData.currentCount}번 소비했어요!
           </p>
         </Card>
 
         <Card className="flex-1 p-5 flex flex-col gap-2">
-          <div className="flex items-center gap-2 justify-between">
-            <p className="text-text-gray text-sm">이번달 예산</p>
+          <div className="flex items-center justify-between">
+            <p className="text-text-gray text-xs">이번달 예산</p>
 
             {loadingAmount ? (
-              <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-md">
+              <span className="text-[10px] bg-gray-200 text-gray-600 px-2 py-0.5 rounded-md">
                 로딩중
               </span>
             ) : isBudgetAchieved ? (
-              <span className="text-xs bg-[#D7F7C6] text-green-700 px-2 py-1 rounded-md">
+              <span className="text-[10px] bg-[#D7F7C6] text-green-700 px-2 py-0.5 rounded-md flex items-center gap-1">
+                <svg
+                  className="w-3 h-3 text-green-700"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
                 달성
               </span>
             ) : (
-              <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-md">
+              <span className="text-[10px] bg-gray-200 text-gray-600 px-2 py-0.5 rounded-md flex items-center gap-1">
+                <svg
+                  className="w-3 h-3 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
                 미달성
               </span>
             )}
           </div>
 
-          <div>
-            <p className="text-text-gray text-xs">이번달 총 소비</p>
-            <p className="text-primary-red text-xl font-bold">
+          <div className="mt-1">
+            <p className="text-text-gray text-[11px]">이번달 총 소비</p>
+            <p className="text-primary-red text-lg font-bold">
               -{formatCurrency(monthlyAmount.totalExpenseAmount)}원
             </p>
           </div>
 
-          <div>
-            <p className="text-text-gray text-xs">이번달 총 소비 목표 비용</p>
-            <p className="text-text-primary text-lg font-semibold">
+          <div className="mt-1">
+            <p className="text-text-gray text-[11px]">이번달 총 소비 목표 비용</p>
+            <p className="text-text-primary text-base font-semibold">
               {formatCurrency(monthlyAmount.totalGoalAmount)}원
             </p>
           </div>
@@ -532,7 +571,7 @@ const ReportPage = () => {
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="text-primary-red">
+                <span className="text-black">
                   -{formatCurrency(item.amount)}원
                 </span>
                 <span className="text-text-gray text-lg">&gt;</span>
