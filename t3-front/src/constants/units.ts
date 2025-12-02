@@ -5,4 +5,5 @@ export const UNITS = {
   YEAR: "년",
   MONTH: "월",
   DATE: "일",
+  TOTAL: "총",
 } as const;

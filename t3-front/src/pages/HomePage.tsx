@@ -235,7 +235,7 @@ const HomePage = () => {
                 {LABELS.GENERAL.PLANNED_SPENDING_COUNT}
               </p>
               <p className="text-text-gray text-sm font-medium">
-                총 {totalExpenseCount}
+                {UNITS.TOTAL} {totalExpenseCount}
                 {UNITS.ITEM}
               </p>
             </div>
@@ -268,7 +268,7 @@ const HomePage = () => {
           </div>
         </Card>
 
-        <Card className="h-[12.8rem] bg-white-default w-[8rem] flex items-center justify-center">
+        <Card className="h-[13.8rem] bg-white-default w-[8rem] flex items-center justify-center">
           <img
             src={mascot.activeImage}
             className="w-[22rem] h-[7rem] mx-auto my-4"
@@ -280,7 +280,7 @@ const HomePage = () => {
         <div className="items-start">
           <div className="flex items-start">
             <div className="flex flex-col w-[12rem]">
-              <Status className="w-[4rem] rounded-lg">
+              <Status className="w-[4rem] rounded-lg mb-2">
                 {SYMBOLS.D_DAY}
                 {remainingDays}
               </Status>
@@ -346,7 +346,7 @@ const HomePage = () => {
 
       <div className="p-5 bg-white-default mb-2 rounded-xl">
         <div>
-          <div className="w-full flex justify-between items-center mb-4">
+          <div className="w-full flex justify-between items-center mb-8">
             <p className="text-text-gray font-medium text-sm">
               {selectedMonth}
               {UNITS.MONTH} {selectedDate}

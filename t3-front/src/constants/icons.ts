@@ -5,14 +5,14 @@ import { FaPlus, FaCheck, FaXmark, FaMagnifyingGlass } from "react-icons/fa6";
 import { TbSettings } from "react-icons/tb";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { LuMessageCirclePlus } from "react-icons/lu";
-import { IoSend } from "react-icons/io5";
+import { IoSend, IoPieChart } from "react-icons/io5";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
 export const ICONS = {
   LOGIN: FaComment,
   HOME: FiHome,
   CHATTING: FiMessageCircle,
-  REPORT: FiBarChart2,
+  REPORT: IoPieChart,
   CHECK: FaCheck,
   PLUS: FaPlus,
   XMARK: FaXmark,

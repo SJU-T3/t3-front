@@ -1,12 +1,13 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { FiHome, FiMessageCircle, FiBarChart2 } from "react-icons/fi";
+import { IoPieChart } from "react-icons/io5";
 
 const MainLayout: React.FC = () => {
   const location = useLocation();
 
   const tabs = [
-    { name: "레포트", path: "/report", icon: FiBarChart2 },
+    { name: "레포트", path: "/report", icon: IoPieChart },
     { name: "홈", path: "/home", icon: FiHome },
     { name: "채팅", path: "/chatting-list", icon: FiMessageCircle },
   ];
@@ -75,10 +76,11 @@ const MainLayout: React.FC = () => {
                     }
                   />
                   <span
-                    className={`text-sm mt-1 ${isActive
-                      ? "text-primary-green font-semibold"
-                      : "text-text-gray"
-                      }`}
+                    className={`text-sm mt-1 ${
+                      isActive
+                        ? "text-primary-green font-semibold"
+                        : "text-text-gray"
+                    }`}
                   >
                     {tab.name}
                   </span>
