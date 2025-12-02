@@ -200,7 +200,7 @@ const IncomeDetailPage = () => {
 
             {/* 총 수입 */}
             <p className="text-text-green text-2xl font-bold">
-                +{formatCurrency(totalIncomeAmount)}원
+                +{formatCurrency(totalIncomeAmount ?? 0)}원
             </p>
 
             {/* 도넛 차트 + 리스트 */}
@@ -208,7 +208,7 @@ const IncomeDetailPage = () => {
                 <div className="flex justify-between items-center">
                     <p className="text-text-gray text-sm">이번달 분야별 수입 통계</p>
                     <p className="text-text-gray text-sm">
-                        총 {formatCurrency(totalIncomeAmount)}원
+                        총 {formatCurrency(totalIncomeAmount ?? 0)}원
                     </p>
                 </div>
 
@@ -216,7 +216,7 @@ const IncomeDetailPage = () => {
                     <CategoryDonutChart
                         data={incomeStats.values}
                         colors={incomeStats.colors}
-                        centerText={formatCurrency(totalIncomeAmount)}
+                        centerText={formatCurrency(totalIncomeAmount ?? 0)}
                     />
                 </div>
 

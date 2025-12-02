@@ -261,21 +261,23 @@ const CategoryDetailPage = () => {
 
             {/* 비율 */}
             <div className="grid grid-cols-2 gap-3">
-                <Card className="flex flex-col items-center justify-center py-5">
-                    <p className="text-text-gray text-xs mb-2">
+                <Card className="flex flex-col justify-center py-5">
+                    <p className="text-text-gray text-xs mb-2 text-left">
                         전체 소비 중 {label} 비율
                     </p>
-                    <ProgressCircle current={percent} goal={100} mode="percent" />
+                    <div className="flex justify-center items-center">
+                        <ProgressCircle current={percent} goal={100} mode="percent" />
+                    </div>
                 </Card>
 
-                <Card className="flex flex-col items-center justify-start py-5 min-h-[150px]">
+                <Card className="flex flex-col justify-start py-5 min-h-[150px]">
                     {/* 상단 고정 영역 */}
-                    <p className="text-text-gray text-xs text-center">
+                    <p className="text-text-gray text-xs text-left">
                         이번달 계획 소비 개수
                     </p>
 
                     {/* 가운데 영역 */}
-                    <div className="flex flex-col items-center justify-center flex-1 mt-2">
+                    <div className="flex flex-col items-center justify-center flex-1 mt-2 gap-2">
                         <p className="text-text-gray text-sm mt-1">
                             총 {totalCount}개
                         </p>

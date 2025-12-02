@@ -6,7 +6,7 @@ const MainLayout: React.FC = () => {
   const location = useLocation();
 
   const tabs = [
-    { name: "리포트", path: "/report", icon: FiBarChart2 },
+    { name: "레포트", path: "/report", icon: FiBarChart2 },
     { name: "홈", path: "/home", icon: FiHome },
     { name: "채팅", path: "/chatting-list", icon: FiMessageCircle },
   ];
