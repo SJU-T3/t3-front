@@ -58,7 +58,7 @@ const CategoryDetailPage = () => {
     >([]);
 
     const [totalCount, setTotalCount] = useState(0);
-
+    const [plannedCount, setPlannedCount] = useState(0);
     // ==================================================
     // 1) 카테고리 피드백 로딩
     // ==================================================
@@ -125,6 +125,8 @@ const CategoryDetailPage = () => {
 
                 setTotalCount(filtered.length);
 
+                const planned = filtered.filter((item) => item.planType === "PLANNED");
+                setPlannedCount(planned.length);
                 // 날짜별 묶기
                 const dailyMap: Record<string, any[]> = {};
 
@@ -174,6 +176,9 @@ const CategoryDetailPage = () => {
     };
 
     const koreanMascotStatus = mascotStatusToKorean[mascotStatus] || mascotStatus;
+    const plannedPercent =
+        totalCount > 0 ? Math.round((plannedCount / totalCount) * 100) : 0;
+
     // ==================================================
     // UI 
     // ==================================================
@@ -243,10 +248,10 @@ const CategoryDetailPage = () => {
                     {/* 가운데 영역 */}
                     <div className="flex flex-col items-center justify-center flex-1 mt-2">
                         <p className={`text-2xl font-bold ${currentColor}`}>
-                            총 {totalCount}개
+                            총 {plannedCount}개
                         </p>
 
-                        <p className="text-text-gray text-sm mt-1">{percent}%</p>
+                        <p className="text-text-gray text-sm mt-1">{plannedPercent}%</p>
                     </div>
                 </Card>
             </div>
